@@ -1,0 +1,42 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontLigatures": true,
+    "keyboard.dispatch": "keyCode",
+    "editor.fontSize": 16,
+    "window.zoomLevel": 1,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "javascript": true,
+        "python": true
+    },
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.formatOnSave": false
+    },
+    "prettier.useTabs": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "notebook.output.scrolling": true,
+    "jupyter.askForKernelRestart": false,
+    "workbench.colorTheme": "GitHub Dark",
+    "editor.tabSize": 2,
+    "vim.smartRelativeLine": true,
+    "editor.linkedEditing": true,
+}
