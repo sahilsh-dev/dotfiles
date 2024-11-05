@@ -80,6 +80,7 @@ plugins=(
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
+source <(fzf --zsh)
 
 export PATH=$HOME/.local/scripts:/usr/local/bin:$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/.config/rofi/scripts:$PATH
@@ -138,14 +139,14 @@ alias gch='git checkout'
 alias gs='git status'
 alias gl='git log'
 
-alias dcu="docker compose up --build"
-alias dcd="docker compose down"
-alias dcl="docker container ls"
 alias di="docker images"
+alias dcl="docker container ls"
 alias dr="docker run"
 alias dri="docker run -it"
 alias dbt="docker build -t"
 alias dei="docker exec -it"
+alias dcu="docker compose up --build"
+alias dcd="docker compose down"
 
 #custom
 alias nf="neofetch"
@@ -160,12 +161,7 @@ explorer_nvim() {
   fi
 }
 
-fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf --tac --height 40% | sed 's/ *[0-9]* *//')
-}
-
 bindkey -s '^F' 'explorer_nvim\n'
-bindkey -s '^H' 'fh\n'
 bindkey -s '^W' '~/.local/scripts/tmux-windowizer.sh\n'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
