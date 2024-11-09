@@ -149,12 +149,12 @@ alias dcu="docker compose up --build"
 alias dcd="docker compose down"
 
 #custom
-alias nf="neofetch"
-alias lc="sudo ~/.local/share/bin/lenovo_control.sh"
+alias ff="fastfetch"
+alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias ta="task add"
 
 explorer_nvim() {
-  selected_directory=$(find ~/.config ~/Programs ~/Code -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected_directory=$(find ~/dotfiles ~/.config ~/Code ~/Programs -mindepth 1 -maxdepth 2 -type d | fzf)
   if [ -n "$selected_directory" ]; then
     cd "$selected_directory"
       nvim . -c "NvimTreeToggle"

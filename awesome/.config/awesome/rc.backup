@@ -57,9 +57,10 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = "alacritty"
+local editor = os.getenv("EDITOR") or "nvim"
+local editor_cmd = terminal .. " -e " .. editor
+
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -71,12 +72,12 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.magnifier,
@@ -371,8 +372,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
         { description = "select previous", group = "layout" }),
 
-    awful.key({ modkey }, "n", function () awful.tag.incncol(1, nil, true)    end),
-    awful.key({ modkey, "Shift" }, "n", function () awful.tag.incncol(-1, nil, true)    end),
+    awful.key({ modkey }, "c", function () awful.tag.incncol(1, nil, true)    end),
+    awful.key({ modkey, "Shift" }, "c", function () awful.tag.incncol(-1, nil, true)    end),
 
     awful.key({ modkey, "Control" }, "n",
         function()
@@ -399,9 +400,6 @@ globalkeys = gears.table.join(
 clientkeys = gears.table.join(
     awful.key({ modkey, }, "f",
         function(c)
-            if c.class == "Google-chrome" and c.fullscreen then
-                c._close_fullscreen = true
-            end
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
@@ -545,6 +543,7 @@ awful.rules.rules = {
                 "AlarmWindow", -- Thunderbird's calendar.
                 "ConfigManager", -- Thunderbird's about:config.
                 "pop-up",  -- e.g. Google Chrome's (detached) Developer Tools.
+                "bubble" -- Browser popups
             }
         },
         properties = { floating = true }
@@ -651,15 +650,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 client.connect_signal("property::urgent", function(c) c:jump_to() end)
-
-
-client.connect_signal("property::fullscreen", function(c)
-    if c.class == "Google-chrome" then
-        -- If Chrome exits fullscreen without your keybinding, force it back
-        if not c.fullscreen and not c._close_fullscreen then
-            c.fullscreen = true
-        end
-        c._close_fullscreen = nil
-    end
-end)
 -- }}}

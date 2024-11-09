@@ -60,7 +60,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 local terminal = "alacritty"
 local editor = os.getenv("EDITOR") or "nvim"
 local editor_cmd = terminal .. " -e " .. editor
-
+local urgent_allowed_windows = {["Google-chrome"] = true, ["Thunar"] = true}
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -649,5 +649,9 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-client.connect_signal("property::urgent", function(c) c:jump_to() end)
+client.connect_signal("property::urgent", function(c)
+    if urgent_allowed_windows[c.class] then
+      c:jump_to()
+    end
+end)
 -- }}}
