@@ -8,8 +8,8 @@
     "window.zoomLevel": 1,
     "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
     "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
+        "*": true,
+        "plaintext": true,
         "markdown": true,
         "scminput": false,
         "javascript": true,

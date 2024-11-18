@@ -154,7 +154,7 @@ alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias ta="task add"
 
 explorer_nvim() {
-  selected_directory=$(find ~/dotfiles ~/.config ~/Code ~/Programs -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected_directory=$(find -L ~/.config ~/Code ~/Programs -mindepth 1 -maxdepth 2 -type d | fzf)
   if [ -n "$selected_directory" ]; then
     cd "$selected_directory"
       nvim . -c "NvimTreeToggle"
