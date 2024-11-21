@@ -157,7 +157,7 @@ explorer_nvim() {
   selected_directory=$(find -L ~/.config ~/Code ~/Programs -mindepth 1 -maxdepth 2 -type d | fzf)
   if [ -n "$selected_directory" ]; then
     cd "$selected_directory"
-      nvim . -c "NvimTreeToggle"
+      nvim
   fi
 }
 
