@@ -68,10 +68,16 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.opt.smartindent = true
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
@@ -897,7 +903,7 @@ require('lazy').setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 'ruby', 'python' } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -919,8 +925,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`

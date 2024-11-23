@@ -201,7 +201,7 @@ local myvolume = lain.widget.pulse({
 local mybrightness = lain.widget.brt({
 	timeout = 30,
 	settings = function()
-		widget:set_markup("󰃠 " .. brightness_now .. "%")
+		widget:set_markup("󰃠  " .. brightness_now .. "%")
 	end,
 })
 
@@ -248,22 +248,22 @@ awful.screen.connect_for_each_screen(function(s)
 
 	local mycpu = lain.widget.cpu({
 		settings = function()
-			widget:set_markup(" " .. cpu_now.usage .. "%")
+			widget:set_markup("  " .. cpu_now.usage .. "%")
 		end,
 	})
 	local mymem = lain.widget.mem({
 		settings = function()
-			widget:set_markup(" " .. mem_now.used)
+			widget:set_markup("  " .. mem_now.used)
 		end,
 	})
 	local mybattery = lain.widget.bat({
 		timeout = 5,
 		settings = function()
-			local bat_icon = " "
+			local bat_icon = "  "
 			if type(bat_now.perc) ~= "number" then
 				bat_icon = ""
 			elseif bat_now.perc < 15 then
-				bat_icon = " "
+				bat_icon = "  "
 			end
 			widget:set_markup(bat_icon .. bat_now.perc .. "% " .. bat_now.status)
 		end,
@@ -272,7 +272,7 @@ awful.screen.connect_for_each_screen(function(s)
 	local separator = wibox.widget.textbox(" | ")
 
 	-- Create a textclock widget
-	mytextclock = wibox.widget.textclock(" %a %b %d, %I:%M %p ")
+	mytextclock = wibox.widget.textclock("  %a %b %d, %I:%M %p ")
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "bottom", screen = s, height = 25 })
