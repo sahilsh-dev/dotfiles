@@ -162,6 +162,6 @@ explorer_nvim() {
 }
 
 bindkey -s '^F' 'explorer_nvim\n'
-bindkey -s '^W' '~/.local/scripts/tmux-windowizer.sh\n'
+bindkey -s '^A' '~/.local/scripts/tmux-sessionizer.sh\n'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

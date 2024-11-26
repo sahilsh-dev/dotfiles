@@ -51,12 +51,10 @@ myvolume = lain.widget.pulse({
 	settings = function()
 		if volume_now == "M" then
 			widget:set_markup("   " .. volume_now)
-		elseif volume_now == "100%" then
-			widget:set_markup("   " .. volume_now)
 		elseif volume_now == "0%" then
 			widget:set_markup("  " .. volume_now)
 		else
-			widget:set_markup("  " .. volume_now)
+			widget:set_markup("   " .. volume_now)
 		end
 	end,
 })

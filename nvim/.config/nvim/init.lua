@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
 vim.g.have_nerd_font = true
-vim.opt.swapfile = false
+vim.opt.swapfile = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -40,9 +40,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
