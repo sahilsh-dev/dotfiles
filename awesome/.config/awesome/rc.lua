@@ -42,7 +42,6 @@ awful.layout.layouts = {
 	-- awful.layout.suit.corner.se,
 }
 
-require("modules.menubar")
 require("modules.bar")
 require("modules.keys")
 require("modules.rules")
