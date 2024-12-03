@@ -153,15 +153,6 @@ alias ff="fastfetch"
 alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias ta="task add"
 
-explorer_nvim() {
-  selected_directory=$(find -L ~/.config ~/Code -mindepth 1 -maxdepth 2 -type d | fzf)
-  if [ -n "$selected_directory" ]; then
-    cd "$selected_directory"
-      nvim
-  fi
-}
-
-bindkey -s '^F' 'explorer_nvim\n'
-bindkey -s '^A' '~/.local/scripts/tmux-sessionizer.sh\n'
+bindkey -s '^F' '~/.local/scripts/tmux-sessionizer.sh\n'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

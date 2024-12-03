@@ -27,9 +27,16 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Down half page and center' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Up half page and center' })
+vim.keymap.set('n', '<C-c>', 'ggVG"+y', { desc = 'Copy file' })
+
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Pase without losing register' })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+
 vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeFindFileToggle, { desc = 'Open file explorer' })
 
 -- [[ Basic Autocommands ]]
+-- Highlight when yanking (copying) text
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text

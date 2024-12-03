@@ -444,11 +444,12 @@ require('lazy').setup({
         -- Python
         'pyright',
         'ruff',
+        'black',
 
         -- Web Dev
         'emmet-ls',
         'eslint_d',
-        'prettier',
+        'prettierd',
         'typescript-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -503,10 +504,14 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier' },
+        typescript = { 'prettierd', 'prettier' },
+        typescriptreact = { 'prettierd', 'prettier' },
+        html = { 'prettierd', 'prettier' },
       },
     },
   },
@@ -722,7 +727,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
