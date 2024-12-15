@@ -76,7 +76,7 @@ awful.rules.rules = {
 	{ rule = { class = "Thunar" }, properties = { screen = 1, tag = "files" } },
 	{ rule = { class = "Telegram" }, properties = { screen = 1, tag = "social" } },
 	{ rule = { class = "discord" }, properties = { screen = 1, tag = "social" } },
-	{ rule = { name = "WhatsApp Web" }, properties = { screen = 1, tag = "social" } },
+	{ rule = { name = "WhatsApp Web" }, properties = { screen = 1, tag = "wapp" } },
 	{ rule = { class = "Soffice" }, properties = { screen = 1, tag = "docs" } },
 	{ rule = { class = "thunderbird" }, properties = { screen = 1, tag = "mail" } },
 	{ rule = { class = "Gimp*" }, properties = { screen = 1, tag = "XI" } },

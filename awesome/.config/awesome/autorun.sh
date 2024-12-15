@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 
 #run "xrandr" --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --off --output HDMI-A-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DVI-D-0 --off --output VGA-1-1 --mode 1280x1024 --pos 0x169 --rotate normal --output HDMI-1-1 --off --output HDMI-1-2 --off
 
@@ -14,9 +14,10 @@ picom -b
 nitrogen --restore &
 xset b off
 xclip &
-thunar --daemon &
 nm-applet &
 
-killall redshift
-redshift -l 30.7046:76.7179 &
-thunderbird &
+if [ -z $(pgrep thunar) ]; then
+    redshift -l 30.7046:76.7179 &
+    thunderbird &
+fi
+thunar --daemon &

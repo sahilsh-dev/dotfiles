@@ -151,7 +151,9 @@ alias dcd="docker compose down"
 #custom
 alias ff="fastfetch"
 alias lc="sudo ~/.local/scripts/lenovo_control.sh"
+alias t="task"
 alias ta="task add"
+alias rm="trash -v"
 
 bindkey -s '^F' '~/.local/scripts/tmux-sessionizer.sh\n'
 eval "$(zoxide init zsh)"
