@@ -33,7 +33,9 @@ globalkeys = gears.table.join(
 		awful.spawn("code")
 	end),
 
-	-- awful.key({ modkey }, "g", function () awful.util.spawn( "rofi -modi emoji -show emoji" ) end),
+	awful.key({ modkey }, "g", function()
+		awful.util.spawn("rofimoji")
+	end),
 	-- awful.key({ modkey }, "x", function () os.execute("betterlockscreen -l blur") end),
 
 	awful.key({}, "XF86MonBrightnessDown", function()

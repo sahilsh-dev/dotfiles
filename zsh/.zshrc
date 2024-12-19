@@ -154,6 +154,7 @@ alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias t="task"
 alias ta="task add"
 alias rm="trash -v"
+alias y="yazi"
 
 bindkey -s '^F' '~/.local/scripts/tmux-sessionizer.sh\n'
 eval "$(zoxide init zsh)"
