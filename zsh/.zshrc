@@ -156,6 +156,6 @@ alias ta="task add"
 alias rm="trash -v"
 alias y="yazi"
 
-bindkey -s '^F' '~/.local/scripts/tmux-sessionizer.sh\n'
+bindkey -s '^F' '~/.local/scripts/tmux-sessionizer\n'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
