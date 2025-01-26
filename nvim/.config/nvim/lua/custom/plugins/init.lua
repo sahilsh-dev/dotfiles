@@ -4,6 +4,6 @@
 -- See the kickstart.nvim README for more information
 return {
   require 'custom.plugins.editor',
-  require 'custom.plugins.folding',
+  require 'custom.plugins.folds',
   require 'custom.plugins.ai',
 }

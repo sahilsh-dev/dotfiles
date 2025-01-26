@@ -89,6 +89,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -153,9 +156,8 @@ alias ff="fastfetch"
 alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias t="task"
 alias ta="task add"
-alias rm="trash -v"
-alias y="yazi"
 
 bindkey -s '^F' '~/.local/scripts/tmux-sessionizer\n'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
