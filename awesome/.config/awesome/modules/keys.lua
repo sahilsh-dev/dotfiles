@@ -24,7 +24,7 @@ globalkeys = gears.table.join(
 		awful.spawn("thunar")
 	end),
 	awful.key({ modkey }, "b", function()
-		awful.spawn("firefox")
+		awful.spawn("google-chrome")
 	end),
 	awful.key({ modkey }, "s", function()
 		awful.spawn("flameshot gui")
