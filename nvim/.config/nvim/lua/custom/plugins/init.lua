@@ -6,4 +6,6 @@ return {
   require 'custom.plugins.editor',
   require 'custom.plugins.folds',
   require 'custom.plugins.ai',
+  require 'custom.plugins.db',
+  require 'custom.plugins.lang',
 }

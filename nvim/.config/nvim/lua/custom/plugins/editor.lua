@@ -1,5 +1,25 @@
 return {
   {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          italic = false, -- Disable italics
+        },
+        highlight_groups = {
+          Comment = { italic = false }, -- Remove italics from comments
+          Function = { italic = false }, -- Remove italics from functions
+          Keyword = { italic = false }, -- Remove italics from keywords
+          Type = { italic = false }, -- Remove italics from types
+          Variable = { italic = false }, -- Remove italics from variables
+        },
+      }
+
+      vim.cmd 'colorscheme rose-pine' -- Apply the theme
+    end,
+  },
+  {
     'goolord/alpha-nvim',
     dependencies = { 'echasnovski/mini.icons' },
     config = function()

@@ -1,12 +1,9 @@
--- [[ Configure and install plugins ]]
---
 --  To check the current status of your plugins, run
 --    :Lazy
 --
 --  To update plugins you can run
 --    :Lazy update
---
--- NOTE: Here is where you install your plugins.
+
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -454,7 +451,6 @@ require('lazy').setup({
         'emmet-ls',
         'eslint_d',
         'prettierd',
-        -- 'typescript-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -637,23 +633,23 @@ require('lazy').setup({
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
-    end,
-  },
+  -- { -- You can easily change to a different colorscheme.
+  --   -- Change the name of the colorscheme plugin below, and then
+  --   -- change the command in the config to whatever the name of that colorscheme is.
+  --   --
+  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   init = function()
+  --     -- Load the colorscheme here.
+  --     -- Like many other themes, this one has different styles, and you could load
+  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  --     vim.cmd.colorscheme 'tokyonight-night'
+  --
+  --     -- You can configure highlights by doing something like:
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -690,45 +686,6 @@ require('lazy').setup({
       statusline.section_location = function()
         return '%2l:%-2v'
       end
-
-      local hipatterns = require 'mini.hipatterns'
-      hipatterns.setup {
-        tailwind = {
-          enabled = true,
-          ft = {
-            'astro',
-            'css',
-            'heex',
-            'html',
-            'html-eex',
-            'javascript',
-            'javascriptreact',
-            'rust',
-            'svelte',
-            'typescript',
-            'typescriptreact',
-            'vue',
-          },
-          -- full: the whole css class will be highlighted
-          -- compact: only the color will be highlighted
-          style = 'full',
-        },
-        highlighters = {
-          hex_color = hipatterns.gen_highlighter.hex_color { priority = 2000 },
-          shorthand = {
-            pattern = '()#%x%x%x()%f[^%x%w]',
-            group = function(_, _, data)
-              ---@type string
-              local match = data.full_match
-              local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
-              local hex_color = '#' .. r .. r .. g .. g .. b .. b
-
-              return MiniHipatterns.compute_hex_color_group(hex_color, 'bg')
-            end,
-            extmark_opts = { priority = 2000 },
-          },
-        },
-      }
     end,
   },
   { -- Highlight, edit, and navigate code
