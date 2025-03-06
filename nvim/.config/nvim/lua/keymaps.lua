@@ -9,6 +9,13 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.goto_prev { popup_opts = { focusable = false } }
+end, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.goto_next { popup_opts = { focusable = false } }
+end, { desc = 'Go to next diagnostic' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -31,8 +38,8 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Up half page and center' })
 vim.keymap.set('n', '<C-c>', 'ggVG"+y', { desc = 'Copy file' })
 
 -- vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without losing register' })
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+-- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+-- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeFindFileToggle, { desc = 'Open file [E]xplorer' })
 
