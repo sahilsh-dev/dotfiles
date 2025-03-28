@@ -29,9 +29,9 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "s", function()
 		awful.spawn("flameshot gui")
 	end),
-	-- awful.key({ modkey }, "v", function()
-	-- 	awful.spawn("code")
-	-- end),
+	awful.key({ modkey }, "v", function()
+		awful.spawn("code")
+	end),
 
 	awful.key({ modkey }, "g", function()
 		awful.util.spawn("rofimoji")

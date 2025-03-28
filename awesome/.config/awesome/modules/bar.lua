@@ -66,7 +66,7 @@ mybrightness = lain.widget.brt({
 awful.screen.connect_for_each_screen(function(s)
 	-- Each screen has its own tag table.
 	--awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, s, awful.layout.layouts[1])
-	local names = { "www", "term", "apps", "files", "slack", "wapp", "docs", "social", "mail", "utils", "XI", "XII" }
+	local names = { "www", "term", "code", "files", "slack", "wapp", "docs", "social", "mail", "utils", "XI", "XII" }
 
 	awful.tag(names, s, awful.layout.layouts[1])
 

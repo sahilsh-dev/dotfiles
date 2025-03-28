@@ -72,6 +72,7 @@ awful.rules.rules = {
 	},
 
 	-- Map apps to workspaces
+	{ rule = { class = "Code" }, properties = { screen = 1, tag = "code" } },
 	{ rule = { class = "Slack" }, properties = { screen = 1, tag = "slack" } },
 	{ rule = { class = "Thunar" }, properties = { screen = 1, tag = "files" } },
 	{ rule = { class = "Telegram" }, properties = { screen = 1, tag = "social" } },
