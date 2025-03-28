@@ -1,0 +1,103 @@
+{
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "editor.fontLigatures": true,
+    "keyboard.dispatch": "keyCode",
+    "editor.fontSize": 16,
+    "window.zoomLevel": 1,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "javascript": true,
+        "python": true,
+        "javascriptreact": true,
+        "go": false
+    },
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.formatOnSave": false
+    },
+    "prettier.useTabs": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "notebook.output.scrolling": true,
+    "jupyter.askForKernelRestart": false,
+    "vim.smartRelativeLine": true,
+    "editor.linkedEditing": true,
+    "workbench.colorTheme": "Rosé Pine (no italics)",
+    "editor.minimap.enabled": false,
+    "yaml.schemas": {
+        "file:///home/sahil/.vscode/extensions/atlassian.atlascode-3.4.20/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "redhat.telemetry.enabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.renderWhitespace": "none",
+    "window.menuBarVisibility": "toggle",
+    "atlascode.jira.enabled": false,
+    "atlascode.helpExplorerEnabled": false,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader",
+                "e"
+            ],
+            "commands": [
+                "workbench.explorer.fileView.focus"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "c"
+            ],
+            "commands": [
+                "workbench.panel.chat"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        }
+    ],
+    "python.defaultInterpreterPath": "/bin/python",
+}
