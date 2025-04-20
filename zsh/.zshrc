@@ -148,7 +148,7 @@ alias dr="docker run"
 alias dri="docker run -it"
 alias dbt="docker build -t"
 alias dei="docker exec -it"
-alias dcu="docker compose up --build"
+alias dcu="docker compose up"
 alias dcd="docker compose down"
 
 #custom
@@ -156,6 +156,7 @@ alias ff="fastfetch"
 alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias t="task"
 alias ta="task add"
+alias tm="task modify"
 
 bindkey -s '^F' '~/.local/scripts/tmux-sessionizer\n'
 eval "$(zoxide init zsh)"
