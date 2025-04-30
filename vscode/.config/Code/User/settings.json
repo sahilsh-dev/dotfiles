@@ -4,7 +4,7 @@
     "editor.fontLigatures": true,
     "keyboard.dispatch": "keyCode",
     "editor.fontSize": 16,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1.5,
     "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
     "github.copilot.enable": {
         "*": true,
@@ -14,9 +14,10 @@
         "javascript": true,
         "python": true,
         "javascriptreact": true,
-        "go": false
+        "go": false,
+        "typescript": true,
+        "ignore": true
     },
-    "editor.formatOnSave": true,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -32,6 +33,9 @@
     "[yaml]": {
         "editor.formatOnSave": false
     },
+    "editor.rulers": [
+        80,
+    ],
     "prettier.useTabs": true,
     "liveServer.settings.donotShowInfoMsg": true,
     "notebook.output.scrolling": true,
@@ -41,13 +45,10 @@
     "workbench.colorTheme": "Rosé Pine (no italics)",
     "editor.minimap.enabled": false,
     "yaml.schemas": {
-        "file:///home/sahil/.vscode/extensions/atlassian.atlascode-3.4.20/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+        "file:///home/sahil/.vscode/extensions/atlassian.atlascode-3.6.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     },
     "redhat.telemetry.enabled": true,
-    "python.analysis.typeCheckingMode": "basic",
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
+    "python.analysis.typeCheckingMode": "off",
     "editor.renderWhitespace": "none",
     "window.menuBarVisibility": "toggle",
     "atlascode.jira.enabled": false,
@@ -100,4 +101,17 @@
         }
     ],
     "python.defaultInterpreterPath": "/bin/python",
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "workbench.settings.applyToAllProfiles": [],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.lint.enable": false,
 }
