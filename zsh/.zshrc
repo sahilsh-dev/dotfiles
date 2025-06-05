@@ -84,6 +84,7 @@ source <(fzf --zsh)
 
 export PATH=$HOME/.local/scripts:/usr/local/bin:$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/.config/rofi/scripts:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
