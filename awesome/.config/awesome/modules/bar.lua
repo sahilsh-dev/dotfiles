@@ -3,6 +3,7 @@ local gears = require("gears")
 local lain = require("lain")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(t)
@@ -63,10 +64,33 @@ mybrightness = lain.widget.brt({
 	end,
 })
 
+-- Notification status widget
+local mynotifStatus = wibox.widget.textbox()
+
+local function update_notify_widget()
+	if naughty.is_suspended() then
+		mynotifStatus:set_markup("🔕")
+	else
+		mynotifStatus:set_markup("🔔")
+	end
+end
+
+mynotifStatus:buttons(gears.table.join(
+	awful.button({}, 1, function()
+		naughty.toggle()
+		update_notify_widget()
+	end)
+))
+
+update_notify_widget()
+awesome.connect_signal("notification::toggle", function()
+	update_notify_widget()
+end)
+
 awful.screen.connect_for_each_screen(function(s)
 	-- Each screen has its own tag table.
 	--awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, s, awful.layout.layouts[1])
-	local names = { "www", "term", "code", "files", "slack", "wapp", "docs", "social", "mail", "utils", "XI", "XII" }
+	local names = { "www", "term", "code", "files", "slack", "social", "apps", "docs", "mail", "utils", "XI", "XII" }
 
 	awful.tag(names, s, awful.layout.layouts[1])
 
@@ -130,7 +154,7 @@ awful.screen.connect_for_each_screen(function(s)
 	local separator = wibox.widget.textbox(" | ")
 
 	-- Create a textclock widget
-	local mytextclock = wibox.widget.textclock("  %a %b %d, %I:%M %p ")
+	local mytextclock = wibox.widget.textclock("  %a %b %d, %I:%M %p")
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "bottom", screen = s, height = 25 })
@@ -159,6 +183,8 @@ awful.screen.connect_for_each_screen(function(s)
 
 			separator,
 			mytextclock,
+			separator,
+			mynotifStatus,
 			wibox.widget.systray(),
 			s.mylayoutbox,
 		},

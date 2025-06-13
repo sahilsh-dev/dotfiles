@@ -2,6 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local os = require("os")
+local naughty = require("naughty")
 
 globalkeys = gears.table.join(
 	awful.key({ modkey }, "w", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -145,7 +146,29 @@ globalkeys = gears.table.join(
 	end, { description = "launcher rofi", group = "launcher" }),
 	awful.key({ modkey }, "p", function()
 		awful.spawn(".config/rofi/scripts/powermenu_t2")
-	end, { description = "rofi powermenu", group = "launcher" })
+	end, { description = "rofi powermenu", group = "launcher" }),
+	awful.key({ modkey }, ".", function()
+		naughty.destroy_all_notifications()
+	end, { description = "clear all notifications", group = "awesome" }),
+
+	awful.key({ modkey, "Shift" }, "n", function()
+		if naughty.is_suspended() then
+			naughty.resume()
+			naughty.notify({
+				title = "Notifications",
+				text = "Notifications resumed",
+				timeout = 2,
+			})
+		else
+			naughty.notify({
+				title = "Notifications",
+				text = "Notifications suspended",
+				timeout = 2,
+			})
+			naughty.suspend()
+		end
+		awesome.emit_signal("notification::toggle")
+	end, { description = "Toggle notifications (DND)", group = "awesome" })
 )
 
 clientkeys = gears.table.join(
