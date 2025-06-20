@@ -75,8 +75,13 @@
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
-            "before": ["leader", "f"],
-            "commands": ["editor.action.formatSelection"]
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatSelection"
+            ]
         }
     ],
     "python.defaultInterpreterPath": "/bin/python",
@@ -102,4 +107,6 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
 }

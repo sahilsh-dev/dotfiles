@@ -151,7 +151,7 @@ globalkeys = gears.table.join(
 		naughty.destroy_all_notifications()
 	end, { description = "clear all notifications", group = "awesome" }),
 
-	awful.key({ modkey, "Shift" }, "n", function()
+	awful.key({ modkey, "Shift" }, "d", function()
 		if naughty.is_suspended() then
 			naughty.resume()
 			naughty.notify({

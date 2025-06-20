@@ -19,7 +19,6 @@ nm-applet &
 if [ -z $(pgrep thunar) ]; then
     redshift -l 30.7046:76.7179 &
     thunderbird &
-    flatpak run org.telegram.desktop &
     flatpak run com.slack.Slack &
 fi
 thunar --daemon &
