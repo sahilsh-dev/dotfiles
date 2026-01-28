@@ -7,6 +7,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 
 theme.font = "JetBrainsMono Nerd Font 10"
+theme.notification_font = "JetBrainsMono Nerd Font 12"
 
 theme.bg_normal = "#222222"
 theme.bg_focus = "#444444"

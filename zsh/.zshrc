@@ -10,6 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -143,6 +145,7 @@ alias gch='git checkout'
 alias gs='git status'
 alias gl='git log'
 
+# docker
 alias di="docker images"
 alias dcl="docker container ls"
 alias dr="docker run"
@@ -158,6 +161,7 @@ alias lc="sudo ~/.local/scripts/lenovo_control.sh"
 alias t="task"
 alias ta="task add"
 alias tm="task modify"
+alias code="antigravity"
 
 bindkey -s '^F' '~/.local/scripts/tmux-sessionizer\n'
 eval "$(zoxide init zsh)"
