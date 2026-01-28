@@ -9,7 +9,8 @@ local spawn  = require("awful.spawn")
 local timer  = require("gears.timer")
 local debug  = require("debug")
 local io     = { lines = io.lines,
-                 open  = io.open }
+                 open  = io.open,
+                 popen = io.popen }
 local pairs  = pairs
 local rawget = rawget
 local tsort  = table.sort
@@ -107,27 +108,48 @@ end
 -- @param callback function to execute on cmd output
 -- @return cmd PID
 function helpers.async(cmd, callback)
-    return spawn.easy_async(cmd,
-    function (stdout, _, _, exit_code)
-        callback(stdout, exit_code)
-    end)
+    if type(cmd) == "table" then
+        if cmd[2] == "-c" and cmd[3] then
+            cmd = string.format("%s -c %q", cmd[1], cmd[3])
+        else
+            cmd = table.concat(cmd, " ")
+        end
+    end
+    local f = io.popen(cmd)
+    local stdout = ""
+    if f then
+        stdout = f:read("*all")
+        f:close()
+    end
+    if callback then callback(stdout, 0) end
+    return nil -- No PID available via popen easily
 end
 
 -- like above, but call spawn.easy_async with a shell
 function helpers.async_with_shell(cmd, callback)
-    return spawn.easy_async_with_shell(cmd,
-    function (stdout, _, _, exit_code)
-        callback(stdout, exit_code)
-    end)
+    local f = io.popen(cmd)
+    local stdout = ""
+    if f then
+        stdout = f:read("*all")
+        f:close()
+    end
+    if callback then callback(stdout, 0) end
+    return nil
 end
 
 -- run a command and execute a function on its output line by line
 function helpers.line_callback(cmd, callback)
-    return spawn.with_line_callback(cmd, {
-        stdout = function (line)
+    if type(cmd) == "table" then
+        cmd = table.concat(cmd, " ")
+    end
+    local f = io.popen(cmd)
+    if f then
+        for line in f:lines() do
             callback(line)
-        end,
-    })
+        end
+        f:close()
+    end
+    return nil
 end
 
 -- }}}

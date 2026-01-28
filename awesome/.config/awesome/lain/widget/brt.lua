@@ -21,9 +21,11 @@ local function factory(args)
     brt.cmd = args.cmd or "brightnessctl"
 
     function brt.update(params)
+        params = params or {}
         helpers.async({ shell, "-c", brt.cmd },
         function(s)
-            brightness_now = s:match("%((%d+)%%%)")
+            s = s or ""
+            brightness_now = s:match("%((%d+)%%%)") or "N/A"
 
             if params.do_notify then
                naughty.notify({

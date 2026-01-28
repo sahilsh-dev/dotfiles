@@ -24,9 +24,11 @@ local function factory(args)
 	pulse.cmd = args.cmd or "pamixer --get-volume-human"
 
 	function pulse.update(params)
+		params = params or {}
 		helpers.async({ shell, "-c", pulse.cmd }, function(s)
+			s = s or ""
 			-- Strips the string from left and right
-			s = s:match("^%s*(.-)%s*$")
+			s = s:match("^%s*(.-)%s*$") or "N/A"
 			if s == "muted" then
 				volume_now = "M"
 			else

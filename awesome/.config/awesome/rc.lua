@@ -13,7 +13,7 @@ require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
 require("modules.error_handler")
 
-awful.spawn.easy_async_with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 -- - Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 

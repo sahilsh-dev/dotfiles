@@ -75,12 +75,10 @@ local function update_notify_widget()
 	end
 end
 
-mynotifStatus:buttons(gears.table.join(
-	awful.button({}, 1, function()
-		naughty.toggle()
-		update_notify_widget()
-	end)
-))
+mynotifStatus:buttons(gears.table.join(awful.button({}, 1, function()
+	naughty.toggle()
+	update_notify_widget()
+end)))
 
 update_notify_widget()
 awesome.connect_signal("notification::toggle", function()
